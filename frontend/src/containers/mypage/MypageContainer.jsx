@@ -48,7 +48,7 @@ function MypageContainer() {
         ...userInfo,
         age,
         nickname,
-        image,
+        image: res.data.image,
       });
     }
   };

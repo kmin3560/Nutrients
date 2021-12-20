@@ -9,7 +9,7 @@ const multerS3 = require("multer-s3");
 const upload = multer({
   storage: multerS3({
     s3,
-    bucket: "lee-nutrient",
+    bucket: "minsong-nutrient",
     key: (req, file, cb) => {
       const extension = path.extname(file.originalname);
       cb(null, Date.now().toString() + extension);
@@ -17,5 +17,4 @@ const upload = multer({
     acl: "public-read-write",
   }),
 });
-
 module.exports = upload;

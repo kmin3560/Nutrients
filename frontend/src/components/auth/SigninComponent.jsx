@@ -9,7 +9,7 @@ const SigninWrapper = styled.div`
   box-sizing: border-box;
 `;
 const Nav = styled.div`
-  height: 15rem;
+  height: 10rem;
   box-sizing: border-box;
   font-size: 3rem;
   display: flex;

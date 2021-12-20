@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { AiFillLike, AiOutlineLike } from "react-icons/ai";
 import { FaComment, FaRegComment } from "react-icons/fa";
 import Button from "../../button/buttonComponent";
+
 const Card = styled.div`
   box-sizing: border-box;
   border: none;
@@ -49,13 +50,16 @@ const Card = styled.div`
     padding: 1.5rem;
   }
   .post-image {
-    width: 500px;
+    width: 100%;
+    height:auto;
     margin: 0 auto;
     padding: 1.5rem;
   }
   .post-image-img {
-    width: 100%;
-    height: 100%;
+    max-width:90%;
+    height:auto;
+    }
+
   }
   .text {
     font-size: 1.5rem;

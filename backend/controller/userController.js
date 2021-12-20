@@ -83,6 +83,7 @@ const userController = {
       });
       res.status(200).json({
         message: "유저 정보 수정 완료!",
+        image,
       });
     } catch (error) {
       res.status(500).json({

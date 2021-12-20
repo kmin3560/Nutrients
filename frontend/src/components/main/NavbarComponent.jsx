@@ -4,6 +4,7 @@ import Button from "../button/buttonComponent";
 import { AiFillSetting } from "react-icons/ai";
 import UserContext from "../../context/UserContext";
 import LinkComponent from "../Link/LinkComponent";
+
 const Nav = styled.nav`
   z-index: 1;
   height: 10rem;
@@ -49,7 +50,6 @@ const Nav = styled.nav`
 
 const Btn = styled(Button)`
   background: white;
-  border-radius: 4px;
   margin-left: 3rem;
   font-size: 2.5rem;
 `;
@@ -70,6 +70,7 @@ const List = styled.li`
 `;
 function NavbarComponent({ onClickLogout, toggle, setToggle }) {
   const { userInfo, isLoggedIn } = useContext(UserContext);
+  console.log(userInfo);
   return (
     <>
       <Nav>
