@@ -67,6 +67,29 @@ const userController = {
       user: req.user,
     });
   },
+
+  updateUser: async (req, res) => {
+    const { id } = req.params;
+    const { nickname, age } = req.body;
+    let image = req.user.image;
+    if (req.file) {
+      image = req.file.location;
+    }
+    try {
+      await userModel.findByIdAndUpdate(id, {
+        nickname,
+        age,
+        image,
+      });
+      res.status(200).json({
+        message: "유저 정보 수정 완료!",
+      });
+    } catch (error) {
+      res.status(500).json({
+        message: "DB 서버 에러",
+      });
+    }
+  },
 };
 
 module.exports = userController;

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import PostComponent from "../../components/main/PostComponent";
 import UserContext from "../../context/UserContext";
 import client from "../../libs/client";
@@ -12,6 +12,16 @@ function PostContainer({ post }) {
   const [commentToggle, setCommentToggle] = useState(false);
   const [comment, setComment] = useState("");
   const [commentCount, setCommentCount] = useState(post.comment.length);
+
+  const [postComment, setPostComment] = useState(post.comment);
+  useEffect(() => {
+    const fetchCommnet = async () => {
+      const res = await client.get(`/board/${post._id}`);
+      setPostComment(res.data.post.comment);
+    };
+    fetchCommnet();
+  }, [commentCount]);
+
   const onClickLike = async () => {
     if (!userInfo) {
       return alert("로그인 후 이용가능 합니다.");
@@ -66,6 +76,7 @@ function PostContainer({ post }) {
       comment={comment}
       commentCount={commentCount}
       onClickCommentSubmit={onClickCommentSubmit}
+      postComment={postComment}
     />
   );
 }

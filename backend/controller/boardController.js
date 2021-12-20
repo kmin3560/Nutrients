@@ -49,7 +49,25 @@ const boardController = {
     }
   },
 
-  getOne: (req, res) => {},
+  getOne: async (req, res) => {
+    const { id } = req.params;
+    try {
+      const post = await boardModel.findById(id).populate({
+        path: "comment",
+        populate: {
+          path: "writer",
+        },
+      });
+      res.status(200).json({
+        message: "게시물 조회 성공",
+        post,
+      });
+    } catch (error) {
+      res.status(500).json({
+        message: "DB서버 에러",
+      });
+    }
+  },
 
   update: (req, res) => {},
 

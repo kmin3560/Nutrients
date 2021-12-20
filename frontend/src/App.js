@@ -7,6 +7,7 @@ import MainPage from "./pages/main/MainPage";
 import client from "./libs/client";
 import UserContext from "./context/UserContext";
 import { useContext, useEffect } from "react";
+import Mypage from "./pages/mypage/Mypage";
 function App() {
   const { userInfo, setUserInfo, setIsLoggedIn } = useContext(UserContext);
   const user = userInfo ? 1 : 0;
@@ -32,6 +33,7 @@ function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/signin" element={<SigninPage />} />
         <Route path="/write" element={<WritePage />} />
+        <Route path="/mypage" element={<Mypage />} />
       </Routes>
     </>
   );

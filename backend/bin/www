@@ -12,7 +12,7 @@ const mongoose = require("mongoose");
 const { username, password } = require("../config/dbConfig.json");
 
 mongoose.connect(
-  `mongodb+srv://${username}:${password}@addinedu-project.pwfce.mongodb.net/Nutrient?retryWrites=true&w=majority`,
+  `mongodb+srv://${username}:${password}@firstproject.7hen2.mongodb.net/Nutrientk?retryWrites=true&w=majority`,
   { useUnifiedTopology: true, useNewUrlParser: true }
 );
 const db = mongoose.connection;
