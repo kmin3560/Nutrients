@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const boardSchema = new Schema({
+  title: {
+    type: String,
+    required: true,
+  },
   text: {
     type: String,
     required: true,
@@ -31,6 +35,9 @@ const boardSchema = new Schema({
     },
   ],
   createAt: Date,
+  image: {
+    type: String,
+    default: "",
+  },
 });
-
-module.exports = mongoose.model("board", userSchema);
+module.exports = mongoose.model("board", boardSchema);
