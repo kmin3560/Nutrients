@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import LoadingComponent from "../../components/loading/LoadingComponent";
 import MainComponent from "../../components/main/MainComponent";
 import UserContext from "../../context/UserContext";
 import client from "../../libs/client";
@@ -8,6 +9,7 @@ function MainContainer() {
   const [board, setBoard] = useState([]);
   const navigate = useNavigate();
   const { userInfo, setUserInfo, setIsLoggedIn } = useContext(UserContext);
+  const [loading, setLoading] = useState(true);
   const [toggle, setToggle] = useState(false);
   const onClickWrite = () => {
     if (!userInfo) {
@@ -45,15 +47,21 @@ function MainContainer() {
   }, [setBoard]);
 
   return (
-    <MainComponent
-      userInfo={userInfo}
-      board={board}
-      onClickWrite={onClickWrite}
-      onClickPostButton={onClickPostButton}
-      onClickLogout={onClickLogout}
-      toggle={toggle}
-      setToggle={setToggle}
-    />
+    <>
+      {loading ? (
+        <LoadingComponent />
+      ) : (
+        <MainComponent
+          userInfo={userInfo}
+          board={board}
+          onClickWrite={onClickWrite}
+          onClickPostButton={onClickPostButton}
+          onClickLogout={onClickLogout}
+          toggle={toggle}
+          setToggle={setToggle}
+        />
+      )}
+    </>
   );
 }
 

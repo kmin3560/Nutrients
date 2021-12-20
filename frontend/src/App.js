@@ -8,6 +8,13 @@ import client from "./libs/client";
 import UserContext from "./context/UserContext";
 import { useContext, useEffect } from "react";
 import Mypage from "./pages/mypage/Mypage";
+import LoadingComponent from "./components/loading/LoadingComponent";
+import {
+  ToastsContainer,
+  ToastsStore,
+  ToastsContainerPosition,
+} from "react-toasts";
+
 function App() {
   const { userInfo, setUserInfo, setIsLoggedIn } = useContext(UserContext);
   const user = userInfo ? 1 : 0;
@@ -24,6 +31,9 @@ function App() {
 
     fetchUser();
   }, [user, setUserInfo, setIsLoggedIn]);
+  useEffect(() => {
+    ToastsStore.success("렌더링 성공");
+  }, []);
 
   return (
     <>
@@ -35,6 +45,10 @@ function App() {
         <Route path="/write" element={<WritePage />} />
         <Route path="/mypage" element={<Mypage />} />
       </Routes>
+      <ToastsContainer
+        position={ToastsContainerPosition.TOP_CENTER}
+        store={ToastsStore}
+      />
     </>
   );
 }
