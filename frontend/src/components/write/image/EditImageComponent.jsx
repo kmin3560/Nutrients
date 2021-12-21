@@ -8,7 +8,6 @@ const ImageWrap = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 4px;
-  background: #deecff;
   cursor: pointer;
 `;
 

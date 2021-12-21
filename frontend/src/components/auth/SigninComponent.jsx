@@ -37,7 +37,7 @@ const SigninForm = styled.form`
     font-size: 2.5rem;
     border: none;
     outline: none;
-    border-bottom: 3px solid #deecff;
+    border-bottom: 1px solid grey;
   }
   .email-text,
   .password-text {
@@ -51,15 +51,14 @@ const SubmitButton = styled(Button)`
   border: none;
   margin-top: 3rem;
   border-radius: 4px;
-
+  font-weight: bolder;
   padding: 1rem 2rem;
   outline: none;
   cursor: pointer;
-  background: #deecff;
+  background: #5a5a5a;
 
-  background-color: #deecff;
-  color: black;
-  font-size: 2rem;
+  background-color: #787878;
+  color: white;
 `;
 
 function SigninComponent({ input, onChangeInput, onSubmitForm }) {

@@ -9,10 +9,11 @@ const Count = styled.div`
   justify-content: center;
   margin-bottom: 3rem;
 `;
+
 const Commnet = styled.section`
   box-sizing: border-box;
-  border: none;
-  border-radius: 5px 5px 5px 5px;
+
+  box-shadow: 0 4px 3px -4px black;
   background: white;
   width: 100%;
   margin: 0 auto 3rem;
@@ -145,7 +146,12 @@ function CommentComponent({
       )}
 
       <InputSection>
-        <StyledInput type="text" onChange={onChangeComment} value={comment} />
+        <StyledInput
+          type="text"
+          onChange={onChangeComment}
+          value={comment}
+          placeholder="댓글은 또 다른 나 입니다."
+        />
         <StyledButton onClick={onClickCommentSubmit}>등록</StyledButton>
       </InputSection>
     </>

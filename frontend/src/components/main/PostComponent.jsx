@@ -5,8 +5,10 @@ import styled from "styled-components";
 
 const PostWrapper = styled.div`
   width: 60%;
-  background: #f3f8ff;
+  background: white;
   margin: 0 auto;
+  box-shadow: 0 0 5px #cccccc;
+  border-radius: 5px;
 `;
 
 function PostComponent({

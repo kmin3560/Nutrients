@@ -4,7 +4,7 @@ import LinkComponent from "../Link/LinkComponent";
 import { MdArrowBackIosNew } from "react-icons/md";
 import Button from "../button/buttonComponent";
 const MypageWrapper = styled.div`
-  background: #f3f8ff;
+  background: rgb(247, 247, 247);
   padding: 5rem 10rem;
   box-sizing: border-box;
 `;
@@ -44,18 +44,15 @@ const StyledInput = styled.input`
 `;
 
 const PutBtn = styled(Button)`
-  width: 20%;
-  height: 50px;
-
-  border: 2px solid #deecff;
+  border: 1px solid grey;
   font-size: 3rem;
-  background: #deecff;
+  background: white;
 `;
 
 const ImageChange = styled.div`
   margin: 3rem auto;
   box-sizing: border-box;
-  border: 3px solid #deecff;
+  border: 1px solid grey;
   border-radius: 70%;
   width: 50rem;
   height: 50rem;

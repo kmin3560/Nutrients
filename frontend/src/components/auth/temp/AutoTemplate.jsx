@@ -9,7 +9,7 @@ const AuthTemplateBlock = styled.div`
   right: 0;
   bottom: 0;
   z-index: -1;
-  background-color: #f3f8ff;
+  background-color: rgb(247, 247, 247);
   display: flex;
   flex-direction: column;
   justify-content: center;

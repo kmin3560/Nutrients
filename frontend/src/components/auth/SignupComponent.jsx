@@ -26,7 +26,7 @@ const SignUpFormBlock = styled.div`
 const StyledInput = styled.input`
   font-size: 2rem;
   border: none;
-  border-bottom: 3px solid #deecff;
+  border-bottom: 2px solid #5a5a5a;
   outline: none;
   width: 100%;
   box-sizing: border-box;
@@ -40,17 +40,15 @@ const StyledButton = styled.button`
   width: 100%;
   height: 50px;
   border: none;
-  margin-top: 3rem;
   border-radius: 4px;
-
+  font-weight: bolder;
   padding: 1rem 2rem;
   outline: none;
   cursor: pointer;
-  background: #deecff;
+  background: #5a5a5a;
 
-  background-color: #deecff;
-  color: black;
-  font-size: 2rem;
+  background-color: #787878;
+  color: white;
 `;
 
 function SignupComponent({ onChangeInput, input, onClickSubmit }) {

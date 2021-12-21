@@ -30,15 +30,15 @@ const GlobalStyle = createGlobalStyle`
 }
 
 .toast-info {
-  background-color: rgba(33,33,33,0.8) !important;
+  background-color: #c7c7c7 !important;
 }
 
 .toast-warning {
-  background-color: rgba(242,82,24,0.8) !important;
+  background-color: #c7c7c7 !important;
 }
 
 .toast-success {
-  background-color: rgba(51,113,246,0.8) !important;
+  background-color: #c7c7c7 !important;
 }
 `;
 

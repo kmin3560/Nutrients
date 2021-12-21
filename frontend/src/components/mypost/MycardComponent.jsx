@@ -9,7 +9,7 @@ const Card = styled.div`
   box-sizing: border-box;
   border: none;
   border-radius: 5px 5px 5px 5px;
-  background: #f3f8ff;
+  background: white;
   width: 100%;
   margin: 0 auto 3rem;
   display: flex;

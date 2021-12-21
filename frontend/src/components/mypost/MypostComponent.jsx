@@ -6,7 +6,7 @@ import MypostListContainer from "../../containers/mypost/MypostListContainer";
 import Button from "../button/buttonComponent";
 
 const MypostWrapper = styled.div`
-  background: #f3f8ff;
+  background: rgb(247, 247, 247);
   padding: 5rem 10rem;
   box-sizing: border-box;
   display: flex;
@@ -47,8 +47,8 @@ const Notice = styled.div`
 
 const PostButton = styled(Button)`
   margin-top: 2rem;
-  background: #deecff;
-  box-shadow: 0px 2px 4px #deecff;
+  border: 1px solid grey;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08);
   font-size: 2rem;
 `;
 
