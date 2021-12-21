@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import TimeForDay from "../../../libs/time";
-import Button from "../../button/buttonComponent";
-
+import TimeForDay from "../../libs/time";
+import Button from "../button/buttonComponent";
 const Count = styled.div`
   font-size: 2rem;
   display: flex;
@@ -99,8 +98,7 @@ const StyledButton = styled(Button)`
   font-size: 2rem;
 `;
 
-function CommentComponent({
-  post,
+function MycardCommentComponent({
   onChangeComment,
   comment,
   onClickCommentSubmit,
@@ -151,4 +149,4 @@ function CommentComponent({
     </>
   );
 }
-export default CommentComponent;
+export default MycardCommentComponent;

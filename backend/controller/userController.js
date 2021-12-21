@@ -1,5 +1,6 @@
 const userModel = require("../models/user");
 const { create } = require("../modules/jwtModule");
+const { encrypt, compare } = require("../modules/cryptoModule");
 const userController = {
   signup: async (req, res) => {
     const { email, password, nickname, age, gender } = req.body;
@@ -9,13 +10,16 @@ const userController = {
         message: "이미 존재하는 아이디 입니다.",
       });
     }
+    const { salt, hashed } = await encrypt(password);
+    console.log(salt, hashed);
     const user = new userModel({
       email,
-      password,
+      password: hashed,
       nickname,
       age,
       gender,
       createAt: Date.now(),
+      salt,
     });
     try {
       const userData = await user.save();
@@ -35,7 +39,8 @@ const userController = {
       const { email, password } = req.body;
       const user = await userModel.findOne({ email });
       if (user) {
-        if (user.password === password) {
+        const comparePassword = await compare(password, user.salt);
+        if (user.password === comparePassword) {
           const accessToken = create({ id: user.id });
           res.status(200).json({
             message: "로그인에 성공했습니다.",

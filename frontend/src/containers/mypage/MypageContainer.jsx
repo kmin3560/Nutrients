@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import MypageComponent from "../../components/mypage/MypageComponent";
 import UserContext from "../../context/UserContext";
 import client from "../../libs/client";
-
+import { ToastsStore } from "react-toasts";
 function MypageContainer() {
   const { userInfo, setUserInfo } = useContext(UserContext);
   const [input, setInput] = useState(null);
@@ -24,8 +24,6 @@ function MypageContainer() {
   const onChangeImage = (e) => {
     const imgFile = e.target.files[0];
     const imgURL = URL.createObjectURL(imgFile);
-    console.log(imgFile);
-    console.log(input);
     setInput({
       ...input,
       image: imgFile,
@@ -42,7 +40,7 @@ function MypageContainer() {
 
     const res = await client.put(`/user/${userInfo.id}`, formData);
     if (res.status === 200) {
-      alert("회원정보 수정이 완료되었습니다.");
+      ToastsStore.success("회원정보 수정이 완료되었습니다.");
       navigate("/");
       setUserInfo({
         ...userInfo,

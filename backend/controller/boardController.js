@@ -71,7 +71,19 @@ const boardController = {
 
   update: (req, res) => {},
 
-  delete: (req, res) => {},
+  deleteComment: async (req, res) => {
+    const { boardId } = req.params;
+    try {
+      await boardModel.findByIdAndRemove(boardId);
+      res.status(200).json({
+        message: "삭제 완료!",
+      });
+    } catch (error) {
+      res.status(500).json({
+        message: "DB 서버 에러",
+      });
+    }
+  },
 
   like: async (req, res) => {
     const { userId } = req.body;
@@ -114,6 +126,31 @@ const boardController = {
       res.status(200).json({
         message: "댓글 작성 완료!",
       });
+    } catch (error) {
+      res.status(500).json({
+        message: "DB 서버 에러",
+      });
+    }
+  },
+  getUserAll: async (req, res) => {
+    try {
+      const { userId } = req.params;
+      const posts = await boardModel
+        .find({ writer: userId })
+        .populate("writer")
+        .populate({
+          path: "comment",
+          populate: {
+            path: "writer",
+          },
+        })
+        .sort("-createAt");
+      if (posts) {
+        res.status(200).json({
+          message: "게시물 조회 성공!",
+          posts,
+        });
+      }
     } catch (error) {
       res.status(500).json({
         message: "DB 서버 에러",

@@ -8,6 +8,7 @@ const WriteActionButtonWrapper = styled.div`
   width: 60%;
   margin: 0 auto;
   justify-content: center;
+  background: #f3f8ff;
 
   button + button {
     margin-left: 0.5rem;

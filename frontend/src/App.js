@@ -8,7 +8,7 @@ import client from "./libs/client";
 import UserContext from "./context/UserContext";
 import { useContext, useEffect } from "react";
 import Mypage from "./pages/mypage/Mypage";
-import LoadingComponent from "./components/loading/LoadingComponent";
+import MypostPage from "./pages/mypost/MypostPage";
 import {
   ToastsContainer,
   ToastsStore,
@@ -31,19 +31,27 @@ function App() {
 
     fetchUser();
   }, [user, setUserInfo, setIsLoggedIn]);
-  useEffect(() => {
-    ToastsStore.success("렌더링 성공");
-  }, []);
 
   return (
     <>
       <GlobalStyle />
       <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/signup" element={<SignupPage />} />
-        <Route path="/signin" element={<SigninPage />} />
-        <Route path="/write" element={<WritePage />} />
-        <Route path="/mypage" element={<Mypage />} />
+        {!userInfo ? (
+          <>
+            <Route path="/signup" element={<SignupPage />} />
+            <Route path="/signin" element={<SigninPage />} />
+            <Route path="*" element={<MainPage />} />
+          </>
+        ) : (
+          <>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/signup" element={<SignupPage />} />
+            <Route path="/signin" element={<SigninPage />} />
+            <Route path="/write" element={<WritePage />} />
+            <Route path="/mypage" element={<Mypage />} />
+            <Route path="/mypost" element={<MypostPage />} />
+          </>
+        )}
       </Routes>
       <ToastsContainer
         position={ToastsContainerPosition.TOP_CENTER}

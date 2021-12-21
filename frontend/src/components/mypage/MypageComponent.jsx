@@ -1,11 +1,10 @@
-import React, { useContext, useRef } from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import LinkComponent from "../Link/LinkComponent";
 import { MdArrowBackIosNew } from "react-icons/md";
-import UserContext from "../../context/UserContext";
 import Button from "../button/buttonComponent";
 const MypageWrapper = styled.div`
-  background: rgb(247, 247, 247);
+  background: #f3f8ff;
   padding: 5rem 10rem;
   box-sizing: border-box;
 `;
@@ -34,24 +33,29 @@ const FormText = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 3rem;
+  align-items: center;
 `;
 
 const StyledInput = styled.input`
   font-size: 2rem;
   width: 85%;
   outline: none;
+  height: 5rem;
 `;
 
 const PutBtn = styled(Button)`
-  border: 1px solid grey;
+  width: 20%;
+  height: 50px;
+
+  border: 2px solid #deecff;
   font-size: 3rem;
-  background: white;
+  background: #deecff;
 `;
 
 const ImageChange = styled.div`
   margin: 3rem auto;
   box-sizing: border-box;
-  border: 1px solid grey;
+  border: 3px solid #deecff;
   border-radius: 70%;
   width: 50rem;
   height: 50rem;
@@ -103,7 +107,12 @@ function MypageComponent({
       <MypageForm>
         <FormText>
           <Label>이메일:</Label>
-          <StyledInput type="text" value={input ? input.email : ""} readOnly />
+          <StyledInput
+            type="text"
+            value={input ? input.email : ""}
+            readOnly
+            style={{ background: "none", border: "none" }}
+          />
         </FormText>
         <FormText>
           <Label>닉네임:</Label>
@@ -120,6 +129,7 @@ function MypageComponent({
             type="text"
             value={input ? (input.gender === "male" ? "남성" : "여성") : ""}
             readOnly
+            style={{ background: "none", border: "none" }}
           />
         </FormText>
         <FormText>

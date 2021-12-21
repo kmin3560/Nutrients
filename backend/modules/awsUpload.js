@@ -17,4 +17,5 @@ const upload = multer({
     acl: "public-read-write",
   }),
 });
+
 module.exports = upload;

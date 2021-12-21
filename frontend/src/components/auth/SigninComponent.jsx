@@ -9,7 +9,7 @@ const SigninWrapper = styled.div`
   box-sizing: border-box;
 `;
 const Nav = styled.div`
-  height: 10rem;
+  height: 15rem;
   box-sizing: border-box;
   font-size: 3rem;
   display: flex;
@@ -37,7 +37,7 @@ const SigninForm = styled.form`
     font-size: 2.5rem;
     border: none;
     outline: none;
-    border-bottom: 1px solid grey;
+    border-bottom: 3px solid #deecff;
   }
   .email-text,
   .password-text {
@@ -51,14 +51,15 @@ const SubmitButton = styled(Button)`
   border: none;
   margin-top: 3rem;
   border-radius: 4px;
-  font-weight: bolder;
+
   padding: 1rem 2rem;
   outline: none;
   cursor: pointer;
-  background: #5a5a5a;
+  background: #deecff;
 
-  background-color: #787878;
-  color: white;
+  background-color: #deecff;
+  color: black;
+  font-size: 2rem;
 `;
 
 function SigninComponent({ input, onChangeInput, onSubmitForm }) {
@@ -87,7 +88,6 @@ function SigninComponent({ input, onChangeInput, onSubmitForm }) {
             <input
               type="password"
               name="password"
-              id=""
               className="password"
               value={input.password}
               onChange={onChangeInput}

@@ -4,7 +4,6 @@ import Button from "../button/buttonComponent";
 import { AiFillSetting } from "react-icons/ai";
 import UserContext from "../../context/UserContext";
 import LinkComponent from "../Link/LinkComponent";
-
 const Nav = styled.nav`
   z-index: 1;
   height: 10rem;
@@ -16,7 +15,7 @@ const Nav = styled.nav`
   position: fixed;
   width: 100%;
   box-sizing: border-box;
-  background: rgb(235, 235, 235);
+  background: #f3f8ff;
   .left {
     height: 100%;
     .logo {
@@ -52,6 +51,7 @@ const Btn = styled(Button)`
   background: white;
   margin-left: 3rem;
   font-size: 2.5rem;
+  box-shadow: 1px 1px 4px 1px #deecff;
 `;
 
 const MyList = styled.div`
@@ -70,7 +70,6 @@ const List = styled.li`
 `;
 function NavbarComponent({ onClickLogout, toggle, setToggle }) {
   const { userInfo, isLoggedIn } = useContext(UserContext);
-  console.log(userInfo);
   return (
     <>
       <Nav>
@@ -78,7 +77,7 @@ function NavbarComponent({ onClickLogout, toggle, setToggle }) {
           <LinkComponent to="/">
             <img
               className="logo"
-              src="https://lee-nutrient.s3.ap-northeast-2.amazonaws.com/logo.png"
+              src="https://minsong-nutrient.s3.ap-northeast-2.amazonaws.com/logo.png"
               alt=""
             />
           </LinkComponent>
@@ -125,6 +124,9 @@ function NavbarComponent({ onClickLogout, toggle, setToggle }) {
           <ul>
             <List>
               <LinkComponent to="/mypage">마이 페이지</LinkComponent>
+            </List>
+            <List>
+              <LinkComponent to="/mypost">내가 쓴 글</LinkComponent>
             </List>
             <li style={{ cursor: "pointer" }} onClick={onClickLogout}>
               로그아웃

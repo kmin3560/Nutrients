@@ -1,9 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
-import PostComponent from "../../components/main/PostComponent";
+import React, { useState, useEffect, useContext } from "react";
 import UserContext from "../../context/UserContext";
 import client from "../../libs/client";
+import MypostListComponent from "../../components/mypost/MypostListComponent";
+import { ToastsStore } from "react-toasts";
 
-function PostContainer({ post }) {
+function MypostListContainer({ post, setBoard }) {
   const { userInfo } = useContext(UserContext);
   const [likeCount, setLikeCount] = useState(post.like.length);
   const [likeToggle, setLikeToggle] = useState(
@@ -21,11 +22,7 @@ function PostContainer({ post }) {
     };
     fetchCommnet();
   }, [commentCount, post._id]);
-
   const onClickLike = async () => {
-    if (!userInfo) {
-      return alert("로그인 후 이용가능 합니다.");
-    }
     if (likeToggle === true) {
       await client.post(`/board/dislike/${post._id}`, { userId: userInfo.id });
       setLikeCount((prev) => prev - 1);
@@ -38,9 +35,6 @@ function PostContainer({ post }) {
   };
 
   const onClickCommentToggle = () => {
-    if (!userInfo) {
-      return alert("로그인 후 이용가능 합니다");
-    }
     setCommentToggle(!commentToggle);
   };
 
@@ -63,22 +57,40 @@ function PostContainer({ post }) {
       return alert(error.response.data.message);
     }
   };
-
+  const onClickDelete = async () => {
+    try {
+      const res = await client.delete(`/board/${post._id}`);
+      if (res.status === 200) {
+        try {
+          const response = await client.get(`/board/user/${userInfo.id}`);
+          if (response.status === 200) {
+            setBoard(response.data.posts);
+            return ToastsStore.success("삭제되었습니다.");
+          }
+        } catch (error) {
+          return alert(error.response.data.message);
+        }
+      }
+    } catch (error) {
+      return alert(error.response.data.message);
+    }
+  };
   return (
-    <PostComponent
+    <MypostListComponent
       post={post}
-      likeToggle={likeToggle}
-      onClickLike={onClickLike}
-      likeCount={likeCount}
-      commentToggle={commentToggle}
-      onClickCommentToggle={onClickCommentToggle}
+      onClickCommentSubmit={onClickCommentSubmit}
       onChangeComment={onChangeComment}
+      onClickCommentToggle={onClickCommentToggle}
+      onClickLike={onClickLike}
+      commentToggle={commentToggle}
+      likeCount={likeCount}
+      likeToggle={likeToggle}
       comment={comment}
       commentCount={commentCount}
-      onClickCommentSubmit={onClickCommentSubmit}
       postComment={postComment}
+      onClickDelete={onClickDelete}
     />
   );
 }
 
-export default PostContainer;
+export default MypostListContainer;

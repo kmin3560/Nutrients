@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import WriteActionButtonComponent from "../../components/write/WriteActionButtonComponent";
 import WriteContext from "../../context/WriteContext";
 import UserContext from "../../context/UserContext";
+import { ToastsStore } from "react-toasts";
 
 import client from "../../libs/client";
 
@@ -34,6 +35,7 @@ function WriteActionButtonContainer() {
           imgURL: "",
         });
         navigate("/");
+        ToastsStore.success("게시글 등록 완료");
       }
     } catch (error) {
       return alert(error.response.data.message);

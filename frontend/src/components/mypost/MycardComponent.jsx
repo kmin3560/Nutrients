@@ -1,13 +1,15 @@
+import React from "react";
+
 import styled from "styled-components";
 import { AiFillLike, AiOutlineLike } from "react-icons/ai";
 import { FaComment, FaRegComment } from "react-icons/fa";
-import Button from "../../button/buttonComponent";
-import TimeForDay from "../../../libs/time";
+import Button from "../button/buttonComponent";
+import TimeForDay from "../../libs/time";
 const Card = styled.div`
   box-sizing: border-box;
   border: none;
   border-radius: 5px 5px 5px 5px;
-  background: white;
+  background: #f3f8ff;
   width: 100%;
   margin: 0 auto 3rem;
   display: flex;
@@ -83,20 +85,30 @@ const Card = styled.div`
   .comment-button {
     margin: 1rem;
   }
+  .delete-button {
+    margin: 0 0 0 auto;
+  }
 `;
 
 const Btn = styled(Button)`
   margin: 1rem;
 `;
 
-function CardComponent({
+const DeleteBtn = styled(Button)`
+  background: white;
+  color: red;
+  border: 1px solid red;
+`;
+
+function MycardComponent({
   post,
-  likeToggle,
   onClickLike,
   likeCount,
-  onClickCommentToggle,
-  commentToggle,
   commentCount,
+  onClickCommentToggle,
+  likeToggle,
+  commentToggle,
+  onClickDelete,
 }) {
   return (
     <Card>
@@ -122,6 +134,9 @@ function CardComponent({
           <div className="create-time">
             <TimeForDay date={post.createAt} />
           </div>
+        </div>
+        <div className="delete-button">
+          <DeleteBtn onClick={onClickDelete}>삭제</DeleteBtn>
         </div>
       </div>
       <div className="title">{post.title}</div>
@@ -160,4 +175,4 @@ function CardComponent({
   );
 }
 
-export default CardComponent;
+export default MycardComponent;

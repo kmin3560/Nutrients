@@ -3,6 +3,7 @@ import SignInComponent from "../../components/auth/SigninComponent";
 import client from "../../libs/client";
 import { useNavigate } from "react-router-dom";
 import UserContext from "../../context/UserContext";
+import { ToastsStore } from "react-toasts";
 function SignInContainer() {
   const [input, setInput] = useState({
     email: "",
@@ -45,6 +46,7 @@ function SignInContainer() {
           const res = await client.get("/user");
           setUserInfo(res.data.user);
           setIsLoggedIn(true);
+          ToastsStore.success("로그인 성공");
         } catch (error) {
           return alert(error.response.data.message);
         }
@@ -60,7 +62,6 @@ function SignInContainer() {
       }
     }
   };
-
   return (
     <SignInComponent
       input={input}

@@ -7,11 +7,12 @@ import PostContainer from "../../containers/main/PostContainer";
 const Main = styled.main`
   margin: 10rem auto 0;
   height: calc(100vh - 10rem);
-  background-color: rgb(247, 247, 247);
+  background-color: #deecff;
   padding: 3rem 5rem;
   overflow: auto;
   box-sizing: border-box;
 `;
+
 const Notice = styled.div`
   height: 100%;
   display: flex;
@@ -36,10 +37,9 @@ const WriteButtonWrap = styled.div`
 `;
 
 const WriteButton = styled(Button)`
-  border: 1px solid grey;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08);
+  border: none;
   font-size: 2rem;
-  background: white;
+  background: #f3f8ff;
 `;
 function MainComponent({
   board,

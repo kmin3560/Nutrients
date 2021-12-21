@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const PostWrapper = styled.div`
   width: 60%;
-  background: white;
+  background: #f3f8ff;
   margin: 0 auto;
 `;
 
