@@ -4,6 +4,7 @@ import client from "../../libs/client";
 import { useNavigate } from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import { ToastsStore } from "react-toasts";
+
 function SignInContainer() {
   const [input, setInput] = useState({
     email: "",
@@ -54,11 +55,11 @@ function SignInContainer() {
       }
     } catch (error) {
       if (error.response.status === 400) {
-        alert(error.response.data.message);
+        ToastsStore.warning(error.response.data.message);
       } else if (error.response.status === 401) {
-        alert(error.response.data.message);
+        ToastsStore.warning(error.response.data.message);
       } else {
-        alert(error.response.data.message);
+        ToastsStore.warning(error.response.data.message);
       }
     }
   };

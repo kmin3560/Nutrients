@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import SignupComponent from "../../components/auth/SignupComponent";
 import client from "../../libs/client";
 import { useNavigate } from "react-router-dom";
+import { ToastsStore } from "react-toasts";
 
 function SignupContainer() {
   const navigate = useNavigate();
@@ -48,7 +49,7 @@ function SignupContainer() {
         navigate("/signin");
       }
     } catch (error) {
-      alert(error.response.data.message);
+      ToastsStore.warning(error.response.data.message);
     }
   };
   return (

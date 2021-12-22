@@ -56,7 +56,7 @@ function MypostListContainer({ post, setBoard }) {
         setComment("");
       }
     } catch (error) {
-      return alert(error.response.data.message);
+      return ToastsStore.warning(error.response.data.message);
     }
   };
   const onClickDelete = async () => {
@@ -70,11 +70,11 @@ function MypostListContainer({ post, setBoard }) {
             return ToastsStore.success("삭제되었습니다.");
           }
         } catch (error) {
-          return alert(error.response.data.message);
+          return ToastsStore.warning(error.response.data.message);
         }
       }
     } catch (error) {
-      return alert(error.response.data.message);
+      return ToastsStore.warning(error.response.data.message);
     }
   };
   return (

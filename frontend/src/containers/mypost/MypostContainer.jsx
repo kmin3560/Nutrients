@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { ToastsStore } from "react-toasts";
 import LoadingComponent from "../../components/loading/LoadingComponent";
 import MypostComponent from "../../components/mypost/MypostComponent";
 import UserContext from "../../context/UserContext";
@@ -22,7 +23,7 @@ function MypostContainer() {
           }
         }
       } catch (error) {
-        alert(error.response.data.message);
+        ToastsStore.warning(error.response.data.message);
       }
     };
     fetchMyPosts();

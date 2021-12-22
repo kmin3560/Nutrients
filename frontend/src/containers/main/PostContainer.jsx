@@ -65,7 +65,7 @@ function PostContainer({ post }) {
         setComment("");
       }
     } catch (error) {
-      return alert(error.response.data.message);
+      ToastsStore.warning(error.response.data.message);
     }
   };
 
