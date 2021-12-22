@@ -14,11 +14,21 @@ const MypostWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   overflow: auto;
+  min-width: 480px;
+  @media (max-width: 1024px) {
+    padding: 5rem 0;
+  }
 `;
 
 const PostWrapper = styled.div`
-  width: 60%;
+  width: 70%;
   margin: 0 auto;
+  @media (max-width: 1024px) {
+    width: 80%;
+  }
+  @media (max-width: 768px) {
+    width: 90%;
+  }
 `;
 
 const Title = styled.h1`
@@ -34,6 +44,12 @@ const Nav = styled.div`
   justify-content: center;
   width: 60%;
   margin: 0 auto 5rem;
+  @media (max-width: 1024px) {
+    width: 80%;
+  }
+  @media (max-width: 768px) {
+    width: 90%;
+  }
 `;
 
 const Notice = styled.div`

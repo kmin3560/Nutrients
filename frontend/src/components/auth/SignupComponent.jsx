@@ -2,20 +2,33 @@ import React from "react";
 import styled from "styled-components";
 import { MdArrowBackIosNew } from "react-icons/md";
 import LinkComponent from "../Link/LinkComponent";
-import AuthTemplate from "./temp/AutoTemplate";
 
-const SignUpNav = styled.div`
-  height: 15rem;
+const SignupWrapper = styled.div`
   box-sizing: border-box;
-  font-size: 3rem;
-  display: flex;
-  align-items: center;
-  width: 66rem;
+  min-width: 480px;
+  width: 50%;
   margin: 0 auto;
-  h3 {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 5rem;
+  @media (max-width: 1024px) {
+    width: 70%;
+  }
+
+  @media (max-width: 768px) {
+    width: 90%;
+  }
+`;
+const SignUpNav = styled.div`
+  display: flex;
+  justify-content: center;
+  font-size: 3rem;
+  align-items: center;
+  margin-bottom: 6rem;
+  h1 {
     margin: 0 auto;
-    z-index: 3;
-    flex-direction: column;
   }
 `;
 
@@ -50,18 +63,34 @@ const StyledButton = styled.button`
   background-color: #787878;
   color: white;
 `;
+const WhiteBox = styled.div`
+  box-sizing: border-box;
+  box-shadow: 0 0 8px rgba(5, 3, 3, 0.1);
+  padding: 8rem;
+  width: 100%;
+  height: 450px;
+  background-color: #fff;
+  border-radius: 2px;
+  @media (max-width: 1024px) {
+    padding: 7rem;
+  }
+
+  @media (max-width: 1024px) {
+    padding: 6rem;
+  }
+`;
 
 function SignupComponent({ onChangeInput, input, onClickSubmit }) {
   const { email, password, nickname, age, gender } = input;
   return (
-    <>
+    <SignupWrapper>
       <SignUpNav>
         <LinkComponent to="/">
           <MdArrowBackIosNew size={50} />
         </LinkComponent>
-        <h3>회원가입</h3>
+        <h1>회원가입</h1>
       </SignUpNav>
-      <AuthTemplate>
+      <WhiteBox>
         <SignUpFormBlock>
           <StyledInput
             name="email"
@@ -116,8 +145,8 @@ function SignupComponent({ onChangeInput, input, onClickSubmit }) {
           </div>
           <StyledButton onClick={onClickSubmit}>회원가입</StyledButton>
         </SignUpFormBlock>
-      </AuthTemplate>
-    </>
+      </WhiteBox>
+    </SignupWrapper>
   );
 }
 

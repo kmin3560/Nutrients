@@ -2,24 +2,34 @@ import React from "react";
 import styled from "styled-components";
 import { MdArrowBackIosNew } from "react-icons/md";
 import Button from "../button/buttonComponent";
-import AuthTemplate from "./temp/AutoTemplate";
 import LinkComponent from "../Link/LinkComponent";
 
 const SigninWrapper = styled.div`
   box-sizing: border-box;
+  min-width: 480px;
+  width: 50%;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 5rem;
+  @media (max-width: 1024px) {
+    width: 70%;
+  }
+
+  @media (max-width: 768px) {
+    width: 90%;
+  }
 `;
 const Nav = styled.div`
-  height: 15rem;
-  box-sizing: border-box;
-  font-size: 3rem;
   display: flex;
+  justify-content: center;
+  font-size: 3rem;
   align-items: center;
-  width: 66rem;
-  margin: 0 auto;
-  h3 {
+  margin-bottom: 6rem;
+  h1 {
     margin: 0 auto;
-    z-index: 3;
-    flex-direction: column;
   }
 `;
 
@@ -60,6 +70,22 @@ const SubmitButton = styled(Button)`
   background-color: #787878;
   color: white;
 `;
+const WhiteBox = styled.div`
+  box-sizing: border-box;
+  box-shadow: 0 0 8px rgba(5, 3, 3, 0.1);
+  padding: 8rem;
+  width: 100%;
+  height: 450px;
+  background-color: #fff;
+  border-radius: 2px;
+  @media (max-width: 1024px) {
+    padding: 7rem;
+  }
+
+  @media (max-width: 1024px) {
+    padding: 6rem;
+  }
+`;
 
 function SigninComponent({ input, onChangeInput, onSubmitForm }) {
   return (
@@ -68,9 +94,9 @@ function SigninComponent({ input, onChangeInput, onSubmitForm }) {
         <LinkComponent to="/">
           <MdArrowBackIosNew size={50} />
         </LinkComponent>
-        <h3>로그인</h3>
+        <h1>로그인</h1>
       </Nav>
-      <AuthTemplate>
+      <WhiteBox>
         <SigninForm onSubmit={onSubmitForm}>
           <div style={{ width: "100%", marginBottom: "3rem" }}>
             <div className="email-text">이메일</div>
@@ -96,7 +122,7 @@ function SigninComponent({ input, onChangeInput, onSubmitForm }) {
             <SubmitButton type="submit">로그인</SubmitButton>
           </div>
         </SigninForm>
-      </AuthTemplate>
+      </WhiteBox>
     </SigninWrapper>
   );
 }

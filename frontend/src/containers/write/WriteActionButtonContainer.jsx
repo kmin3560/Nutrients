@@ -15,10 +15,10 @@ function WriteActionButtonContainer() {
 
   const onPublish = async () => {
     if (writeInfo.title === "") {
-      return alert("제목을 입력하세요");
+      return ToastsStore.warning("제목을 입력하세요");
     }
     if (writeInfo.body === "") {
-      return alert("내용을 입력하세요");
+      return ToastsStore.warning("내용을 입력하세요");
     }
     const formData = new FormData();
     formData.append("img", writeInfo.imgFile);

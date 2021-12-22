@@ -14,6 +14,7 @@ import {
   ToastsStore,
   ToastsContainerPosition,
 } from "react-toasts";
+import Notfound from "./pages/error/Notfound";
 
 function App() {
   const { userInfo, setUserInfo, setIsLoggedIn } = useContext(UserContext);
@@ -50,6 +51,7 @@ function App() {
             <Route path="/write" element={<WritePage />} />
             <Route path="/mypage" element={<Mypage />} />
             <Route path="/mypost" element={<MypostPage />} />
+            <Route path="*" element={<Notfound />} />
           </>
         )}
       </Routes>

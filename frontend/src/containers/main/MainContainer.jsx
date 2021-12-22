@@ -14,14 +14,14 @@ function MainContainer() {
   const [loading, setLoading] = useState(true);
   const onClickWrite = () => {
     if (!userInfo) {
-      return alert("로그인 후 이용가능 합니다.");
+      return ToastsStore.success("로그인 후 이용가능 합니다.");
     }
     navigate("/write");
   };
 
   const onClickPostButton = () => {
     if (!userInfo) {
-      return alert("로그인 후 이용가능 합니다.");
+      return ToastsStore.success("로그인 후 이용가능 합니다.");
     }
     navigate("/write");
   };

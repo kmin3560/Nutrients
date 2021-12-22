@@ -88,6 +88,11 @@ const Card = styled.div`
   .delete-button {
     margin: 0 0 0 auto;
   }
+  @media (max-width: 1024px) {
+    .post-image {
+      width: 80%;
+    }
+  }
 `;
 
 const Btn = styled(Button)`
@@ -98,6 +103,10 @@ const DeleteBtn = styled(Button)`
   background: white;
   color: red;
   border: 1px solid red;
+  &:hover {
+    transition: 0.5s;
+    transform: scale(1.05);
+  }
 `;
 
 function MycardComponent({

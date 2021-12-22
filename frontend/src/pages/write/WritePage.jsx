@@ -10,12 +10,20 @@ const Title = styled.div`
   justify-content: center;
   margin: 0 auto;
   font-size: 4rem;
+  padding: 3rem 0;
+  @media (max-width: 1024px) {
+    width: 80%;
+  }
 `;
 const WriteWrapper = styled.div`
+  min-width: 480px;
   box-sizing: border-box;
   padding: 5rem;
   height: 100vh;
   background: rgb(247, 247, 247);
+  @media (max-width: 1024px) {
+    padding: 0;
+  }
 `;
 
 function WritePage() {

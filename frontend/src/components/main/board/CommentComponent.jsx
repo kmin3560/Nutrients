@@ -4,15 +4,15 @@ import TimeForDay from "../../../libs/time";
 import Button from "../../button/buttonComponent";
 
 const Count = styled.div`
+  box-sizing: border-box;
+  padding-bottom: 2rem;
   font-size: 2rem;
   display: flex;
   justify-content: center;
   margin-bottom: 3rem;
 `;
-
 const Commnet = styled.section`
   box-sizing: border-box;
-
   box-shadow: 0 4px 3px -4px black;
   background: white;
   width: 100%;
@@ -86,7 +86,7 @@ const InputSection = styled.div`
   justify-content: space-between;
   margin-bottom: 3rem;
   width: 100%;
-  padding: 0 2rem 1rem;
+  padding: 0 2rem 3rem;
 `;
 
 const StyledInput = styled.input`

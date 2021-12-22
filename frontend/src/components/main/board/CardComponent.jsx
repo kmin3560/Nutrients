@@ -5,14 +5,14 @@ import Button from "../../button/buttonComponent";
 import TimeForDay from "../../../libs/time";
 const Card = styled.div`
   box-sizing: border-box;
-  border: none;
-  border-radius: 5px 5px 5px 5px;
-  background: #ffffff;
   width: 100%;
   margin: 0 auto 3rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  font-family: "GowunBatang-Regular", sans-serif;
+
   .user-info {
     display: flex;
     padding: 1.5rem;
@@ -82,6 +82,11 @@ const Card = styled.div`
   }
   .comment-button {
     margin: 1rem;
+  }
+  @media (max-width: 1024px) {
+    .post-image {
+      width: 90%;
+    }
   }
 `;
 

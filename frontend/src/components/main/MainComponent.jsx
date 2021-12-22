@@ -3,7 +3,6 @@ import NavbarComponent from "./NavbarComponent";
 import styled from "styled-components";
 import Button from "../button/buttonComponent";
 import PostContainer from "../../containers/main/PostContainer";
-
 const Main = styled.main`
   margin: 10rem auto 0;
   height: calc(100vh - 10rem);
@@ -11,6 +10,9 @@ const Main = styled.main`
   padding: 3rem 5rem;
   overflow: auto;
   box-sizing: border-box;
+  @media (max-width: 1024px) {
+    padding: 3rem 0;
+  }
 `;
 
 const Notice = styled.div`
@@ -34,6 +36,13 @@ const WriteButtonWrap = styled.div`
   margin: 0 auto 1rem;
   display: flex;
   justify-content: flex-end;
+
+  @media (max-width: 1024px) {
+    width: 80%;
+  }
+  @media (max-width: 600px) {
+    width: 90%;
+  }
 `;
 
 const WriteButton = styled(Button)`
@@ -45,6 +54,10 @@ const WriteButton = styled(Button)`
     transition: 0.5s;
     transform: scale(1.05);
   }
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 `;
 function MainComponent({
   board,
@@ -55,7 +68,7 @@ function MainComponent({
   toggle,
 }) {
   return (
-    <>
+    <div style={{ minWidth: "480px" }}>
       <NavbarComponent
         onClickLogout={onClickLogout}
         toggle={toggle}
@@ -64,7 +77,7 @@ function MainComponent({
       <Main>
         {board.length > 0 && (
           <WriteButtonWrap>
-            <WriteButton onClick={onClickWrite}>글 작성</WriteButton>
+            <WriteButton onClick={onClickWrite}>글작성</WriteButton>
           </WriteButtonWrap>
         )}
 
@@ -77,7 +90,7 @@ function MainComponent({
           </Notice>
         )}
       </Main>
-    </>
+    </div>
   );
 }
 

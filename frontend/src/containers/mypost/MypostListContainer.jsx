@@ -3,7 +3,6 @@ import UserContext from "../../context/UserContext";
 import client from "../../libs/client";
 import MypostListComponent from "../../components/mypost/MypostListComponent";
 import { ToastsStore } from "react-toasts";
-
 function MypostListContainer({ post, setBoard }) {
   const { userInfo } = useContext(UserContext);
   const [likeCount, setLikeCount] = useState(post.like.length);
@@ -44,6 +43,9 @@ function MypostListContainer({ post, setBoard }) {
 
   const onClickCommentSubmit = async () => {
     try {
+      if (!comment) {
+        return ToastsStore.success("댓글을 입력하세요.");
+      }
       const res = await client.post(`/board/comment/${post._id}`, {
         text: comment,
         userId: userInfo.id,

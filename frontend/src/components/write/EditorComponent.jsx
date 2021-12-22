@@ -8,6 +8,9 @@ const EditorWrap = styled.div`
   padding-top: 2rem;
   width: 60%;
   margin: 0 auto;
+  @media (max-width: 1024px) {
+    width: 80%;
+  }
 `;
 
 const TitleInput = styled.input`

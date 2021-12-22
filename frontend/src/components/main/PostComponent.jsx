@@ -9,6 +9,12 @@ const PostWrapper = styled.div`
   margin: 0 auto;
   box-shadow: 0 0 5px #cccccc;
   border-radius: 5px;
+  @media (max-width: 1024px) {
+    width: 80%;
+  }
+  @media (max-width: 600px) {
+    width: 90%;
+  }
 `;
 
 function PostComponent({

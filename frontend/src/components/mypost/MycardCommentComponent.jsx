@@ -85,6 +85,9 @@ const InputSection = styled.div`
   margin-bottom: 3rem;
   width: 100%;
   padding: 0 2rem 1rem;
+  @media (max-width: 900px) {
+    padding: 0;
+  }
 `;
 
 const StyledInput = styled.input`

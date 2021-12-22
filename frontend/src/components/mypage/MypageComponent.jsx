@@ -7,12 +7,26 @@ const MypageWrapper = styled.div`
   background: rgb(247, 247, 247);
   padding: 5rem 10rem;
   box-sizing: border-box;
+  min-width: 480px;
+  @media (max-width: 1024px) {
+    padding: 5rem 0;
+    .back {
+      margin-left: 3rem;
+    }
+  }
 `;
 
 const MypageForm = styled.div`
   width: 60%;
   margin: 0 auto;
   padding: 6rem 0 4rem;
+
+  @media (max-width: 1024px) {
+    width: 70%;
+  }
+  @media (max-width: 768px) {
+    width: 90%;
+  }
 `;
 
 const Title = styled.h1`
@@ -27,6 +41,9 @@ const TitleWrapper = styled.div`
 
 const Label = styled.label`
   font-size: 2rem;
+  @media (max-width: 600px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const FormText = styled.div`
@@ -41,6 +58,9 @@ const StyledInput = styled.input`
   width: 85%;
   outline: none;
   height: 5rem;
+  @media (max-width: 600px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const PutBtn = styled(Button)`
@@ -63,6 +83,11 @@ const ImageChange = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  @media (max-width: 600px) {
+    width: 40rem;
+    height: 40rem;
   }
 `;
 

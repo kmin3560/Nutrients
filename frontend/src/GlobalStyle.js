@@ -4,6 +4,13 @@ import reset from "styled-reset";
 const GlobalStyle = createGlobalStyle`
   ${reset}
 
+  @font-face {
+    font-family: 'GowunBatang-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
   html {
     font-size : 10px;
   }
@@ -21,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
   font-weight: 500;
   line-height: 22px;
   height: 20px;
-  width: 20rem;
+  min-width: 20rem;
   padding: 1rem;
   min-height: 2rem !important;
   display: flex;
@@ -30,11 +37,11 @@ const GlobalStyle = createGlobalStyle`
 }
 
 .toast-info {
-  background-color: #c7c7c7 !important;
+  background-color: rgba(33,33,33,0.8) !important;
 }
 
 .toast-warning {
-  background-color: #c7c7c7 !important;
+  background-color: rgba(242,82,24,0.8) !important;
 }
 
 .toast-success {

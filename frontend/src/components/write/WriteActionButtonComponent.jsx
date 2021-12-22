@@ -8,9 +8,16 @@ const WriteActionButtonWrapper = styled.div`
   width: 60%;
   margin: 0 auto;
   justify-content: center;
+  @media (max-width: 1024px) {
+    width: 80%;
+    justify-content: space-evenly;
+  }
 
   button + button {
     margin-left: 0.5rem;
+  }
+  @media (max-width: 600px) {
+    align-items: center;
   }
 `;
 
