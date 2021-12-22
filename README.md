@@ -1,10 +1,9 @@
-# Nutrients
-## 2021 JavaScript Project
+# 2021 JavaScript Project
 > 건강기능식품 정보 공유 커뮤니티
 > 
 > 2021.10.13 - 2021.12.23
 
-## 🛠️Tech-Stack
+## 🛠️Using Technology
 <p align="center">
   <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=white" /> &nbsp
   <img src="https://img.shields.io/badge/styledComponents-DB7093?style=flat-square&logo=styled-components&logoColor=white" /> &nbsp 
@@ -27,11 +26,9 @@
 [mlink]: https://github.com/kmin3560
 
 ## 📄 Document
-> [oven]
-> 
-> [notion][notion]
+> [oven][oven]
 > 
 > [PPT][ppt]
 
-[notion]:https://boatneck-porcupine-e02.notion.site/bad66bfc49dd4e2ba7d04138200b97b4?v=6c8668849fff4500b06ce93b3de56c22
+[oven]:https://ovenapp.io/project/zyP9yKD5FFlJGFkqVbaQeNBf3O9JMklG#DxMJ1
 [ppt]:https://docs.google.com/presentation/d/1T7MUmJWTKmj-U9jeIrX87KnDlKlvQyleV0ZvtC0L20A/edit?usp=sharing
