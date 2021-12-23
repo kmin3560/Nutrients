@@ -33,8 +33,6 @@
 ## :moon:Architecture
 <img src="https://user-images.githubusercontent.com/73999808/147174986-8f490244-96aa-4fd3-9259-3bc196f5d416.png" />
 
-<br/>
-
 ## :handshake:Team
 > :octocat: [이주혁](https://github.com/leejh96) :raising_hand:`팀장`
 > 
